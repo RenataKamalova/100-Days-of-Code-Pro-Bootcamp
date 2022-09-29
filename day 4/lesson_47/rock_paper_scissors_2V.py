@@ -27,7 +27,7 @@ scissors = """
 ---.__(___)
 """
 
-items = ["rock", "paper", "scissors"]
+items = [rock, paper, scissors]
 
 
 sum_first = 0
@@ -35,7 +35,9 @@ sum_second = 0
 move = 1
 
 while sum_second < 3 and sum_first < 3:
-    my_choice = input("Вы: ")
+    my_choice = int(input("Выберите:\n1. Камень\n2. Бумага\n3. Ножницы\n\n"))
+    print(items[my_choice - 1])
+
     second_player = random.choice(items)
     print(f"Компьютер: {second_player}")
 
@@ -49,9 +51,11 @@ while sum_second < 3 and sum_first < 3:
         ):
             sum_first += 1
             print(f"Ура! Счёт - {sum_first}:{sum_second}")
+            print()
         else:
             sum_second += 1
-            print(f"Ой:(. Счёт - {sum_first}:{sum_second}")
+            print(f"Ой:(. Счёт - {sum_second}:{sum_first}\n")
+
     else:
         print(f"Счёт - {sum_first}:{sum_second}")
 
