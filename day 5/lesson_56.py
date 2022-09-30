@@ -15,18 +15,15 @@ password = ""
 total_list = [letters, symbols, numbers]
 
 
-for i in range(0, number_of_letters + 1):
-    random_letters = random.choice(total_list[0])
-    password += random_letters
+for i in range(0, number_of_letters):
+    password += random.choice(total_list[0])
 
-for i in range(0, number_of_symbols + 1):
-    random_symbols = random.choice(total_list[1])
-    password += random_symbols
+for i in range(0, number_of_symbols):
+    password += random.choice(total_list[1])
 
-for i in range(0, number_of_digits + 1):
-    random_digits = random.choice(total_list[2])
-    password += random_digits
+for i in range(0, number_of_digits):
+    password += random.choice(total_list[2])
 
 password = random.sample(password, len(password))
 
-print("".join(password))
+print(f'Your password is {"".join(password)}')
