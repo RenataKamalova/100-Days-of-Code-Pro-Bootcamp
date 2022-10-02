@@ -1,74 +1,14 @@
 import random
+from hangman_words import word_list
+from hangman_art import logo
+from hangman_art import stages
 
-lose = [
-    """
-   _____
-  +     +
-        |
-        |
-        |
-        |
-        |
-""",
-    """
-   _____
-  +     +
-  O     |
-        |
-        |
-        |
-        |
-""",
-    """
-   _____
-  +     +
-  O     |
-  |     |
-        |
-        |
-        |
-""",
-    """
-   _____
-  +     +
-  O     |
- /|     |
-        |
-        |
-        |
-""",
-    """
-   _____
-  +     +
-  O     |
- /|\    |
-        |
-        |
-        |
-""",
-    """
-   _____
-  +     +
-  O     |
- /|\    |
-   \    |
-        |
-        |
-""",
-    """
-   _____
-  +     +
-  O     |
- /|\    |
- / \    |
-        |
-        |
-""",
-]
+print(logo)
+lose = stages
+word_dict = word_list
 
-count_lose = 0
-
-word_dict = ["programmer", "table", "computer"]
+count_lose = 6
+count_enter = 0
 
 word = random.choice(word_dict)
 
@@ -85,8 +25,8 @@ while "_" in empty_word:
     print()
     if letter not in word:
         print("\nНеверно", lose[count_lose])
-        count_lose += 1
-        if count_lose == 6:
+        count_lose -= 1
+        if count_lose == -1:
             print("Ты проиграл")
             break
     else:
