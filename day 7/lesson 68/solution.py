@@ -10,9 +10,10 @@ word_dict = word_list
 
 count_lose = 6
 count_enter = 0
+used_letters = ""
 
 word = random.choice(word_dict)
-print(f"тсс, это твоё слово ---> {word}")
+# print(f"тсс, это твоё слово ---> {word}")
 
 empty_word = []
 
@@ -24,13 +25,17 @@ print()
 
 while "_" in empty_word:
     letter = input(f"Угадайте букву в слове из {len(word)} слов:\n").lower()
+    used_letters += letter
     print()
-    if letter not in word:
+    if letter not in word and used_letters.count(letter) == 1:
         print("Неверно\n", lose[count_lose])
         count_lose -= 1
         if count_lose == -1:
-            print("Ты проиграл")
+            print("Ты проиграл! ;(")
             break
+
+    elif used_letters.count(letter) > 1:
+        print(f"Буква {letter} уже вводилась")
     else:
         print("Есть такая буква\n")
 
@@ -42,4 +47,4 @@ while "_" in empty_word:
     print()
 
 if "_" not in empty_word:
-    print("You are genius")
+    print("You are genius!")
