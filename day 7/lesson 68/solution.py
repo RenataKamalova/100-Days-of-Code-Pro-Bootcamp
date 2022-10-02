@@ -28,7 +28,9 @@ while "_" in empty_word:
     used_letters += letter
     print()
     if letter not in word and used_letters.count(letter) == 1:
-        print("Неверно\n", lose[count_lose])
+        print("Неверно.\n")
+        print("Ты потерял одну жизнь.")
+        print(lose[count_lose])
         count_lose -= 1
         if count_lose == -1:
             print("Ты проиграл! ;(")
