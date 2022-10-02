@@ -3,6 +3,7 @@ from hangman_words import word_list
 from hangman_art import logo
 from hangman_art import stages
 
+
 print(logo)
 lose = stages
 word_dict = word_list
@@ -22,10 +23,10 @@ print(" ".join(empty_word))
 print()
 
 while "_" in empty_word:
-    letter = input("Угадайте букву:\n").lower()
+    letter = input(f"Угадайте букву в слове из {len(word)} слов:\n").lower()
     print()
     if letter not in word:
-        print("\nНеверно", lose[count_lose])
+        print("Неверно\n", lose[count_lose])
         count_lose -= 1
         if count_lose == -1:
             print("Ты проиграл")
