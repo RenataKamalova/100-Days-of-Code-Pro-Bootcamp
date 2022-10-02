@@ -11,6 +11,7 @@ count_lose = 6
 count_enter = 0
 
 word = random.choice(word_dict)
+print(f"тсс, это твоё слово ---> {word}")
 
 empty_word = []
 
