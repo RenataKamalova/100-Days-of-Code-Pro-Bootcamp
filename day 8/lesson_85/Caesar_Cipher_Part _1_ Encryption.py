@@ -44,7 +44,7 @@ def encrypt(plain_text, shift_amount):
             new_letter = alphabet[new_position]
             ciphertext += new_letter
         else:
-            new_letter = alphabet[new_position - len(alphabet)]
+            new_letter = alphabet[new_position - position]
             ciphertext += new_letter
 
     print(f"The encoded text is {ciphertext}")
