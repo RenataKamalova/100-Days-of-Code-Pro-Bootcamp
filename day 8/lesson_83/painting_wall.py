@@ -1,9 +1,13 @@
-from math import ceil
-from turtle import width
+import math
 
 
-def counting_cans(height, width, coverage):
-    print(ceil((height * width) / coverage))
+def paint_calc(height, width, cover):
+    result = math.ceil((height * width) / cover)
+
+    print(f"You'll need {result} cans of paint.")
 
 
-counting_cans(height=int(input("Height = ")), width=int(input("Width = ")), coverage=5)
+test_h = int(input("Height of wall: "))
+test_w = int(input("Width of wall: "))
+coverage = 5
+paint_calc(height=test_h, width=test_w, cover=coverage)
