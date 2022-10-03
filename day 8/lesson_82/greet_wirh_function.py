@@ -3,7 +3,4 @@ def greet_with(name, location):
     print(f"What is it like in {location}?")
 
 
-name = input()
-location = input()
-
-greet_with(name, location)
+greet_with(name=input("Your name is "), location=input("Your location is "))
