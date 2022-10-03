@@ -1,9 +1,9 @@
-def greet_with(name, locality):
+def greet_with(name, location):
     print(f"Hello dear {name}!")
-    print(f"Are you from {locality}?")
+    print(f"What is it like in {location}?")
 
 
 name = input()
-locality = input()
+location = input()
 
-greet_with(name, locality)
+greet_with(name, location)
