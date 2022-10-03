@@ -40,8 +40,12 @@ def encrypt(plain_text, shift_amount):
     for letter in plain_text:
         position = alphabet.index(letter)
         new_position = position + shift_amount
-        new_letter = alphabet[new_position]
-        ciphertext += new_letter
+        if new_position <= len(alphabet):
+            new_letter = alphabet[new_position]
+            ciphertext += new_letter
+        else:
+            new_letter = alphabet[new_position - len(alphabet)]
+            ciphertext += new_letter
 
     print(f"The encoded text is {ciphertext}")
 
