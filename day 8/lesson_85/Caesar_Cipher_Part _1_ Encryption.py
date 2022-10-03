@@ -1,3 +1,6 @@
+from operator import index
+
+
 alphabet = [
     "a",
     "b",
@@ -30,22 +33,17 @@ alphabet = [
 # direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
-result = ""
 
 
 def encrypt(plain_text, shift_amount):
-    result = ""
-    for i in range(0, len(plain_text)):
-        for k in range(0, len(alphabet)):
-            if len(alphabet) - k > shift_amount:
-                if plain_text[i] == alphabet[k]:
-                    result += alphabet[k + shift_amount]
-                if plain_text[i] not in alphabet:
-                    break
-            else:
-                break
+    ciphertext = ""
+    for letter in plain_text:
+        position = alphabet.index(letter)
+        new_position = position + shift_amount
+        new_letter = alphabet[new_position]
+        ciphertext += new_letter
 
-    print(f"The encoded text is {result}")
+    print(f"The encoded text is {ciphertext}")
 
 
 encrypt(text, shift)
