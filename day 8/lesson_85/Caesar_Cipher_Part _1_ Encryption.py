@@ -2,11 +2,11 @@ from operator import index
 from art import logo
 from art import english_alphabet
 
-print(logo)
+# print(logo)
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n")) % len(english_alphabet)
+# direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+# text = input("Type your message:\n").lower()
+# shift = int(input("Type the shift number:\n")) % len(english_alphabet)
 
 
 def caesar(start_text, shift_amount, cipher_direction):
@@ -27,4 +27,19 @@ def caesar(start_text, shift_amount, cipher_direction):
     print(f"The {cipher_direction}d text is {end_text}")
 
 
-caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+# caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+
+a = 1
+
+while a == 1:
+    print(logo)
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n")) % len(english_alphabet)
+    caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+
+    x = input("Again? Y/N ")
+    if x == "Y":
+        a = 1
+    else:
+        a = 0
