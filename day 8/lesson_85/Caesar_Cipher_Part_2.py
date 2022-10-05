@@ -1,12 +1,7 @@
+from multiprocessing.connection import answer_challenge
 from operator import index
 from art import logo
 from art import english_alphabet
-
-print(logo)
-
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n")) % len(english_alphabet)
 
 
 def caesar(start_text, shift_amount, cipher_direction):
@@ -31,4 +26,18 @@ def caesar(start_text, shift_amount, cipher_direction):
     print(f"The {cipher_direction}d text is {end_text}")
 
 
-caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+continue_flag = True
+
+while continue_flag == True:
+    print(logo)
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n")) % len(english_alphabet)
+    caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+
+    answer_to_question = input("Do you want to encode or decode something again? Y/N ")
+    if answer_to_question == "Y":
+        continue_flag = True
+    else:
+        continue_flag = False
+        print("Goodbye!")
