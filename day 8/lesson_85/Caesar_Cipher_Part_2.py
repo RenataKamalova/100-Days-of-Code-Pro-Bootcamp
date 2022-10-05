@@ -1,4 +1,3 @@
-from multiprocessing.connection import answer_challenge
 from operator import index
 from art import logo
 from art import english_alphabet
