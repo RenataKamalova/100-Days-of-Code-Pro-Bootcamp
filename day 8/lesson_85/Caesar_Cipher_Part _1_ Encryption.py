@@ -6,8 +6,7 @@ print(logo)
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-number_of_letters = len(english_alphabet) - 1
+shift = int(input("Type the shift number:\n")) % len(english_alphabet)
 
 
 def caesar(start_text, shift_amount, cipher_direction):
@@ -16,19 +15,15 @@ def caesar(start_text, shift_amount, cipher_direction):
         position = english_alphabet.index(letter)
         if cipher_direction == "decode":
             shift_amount *= -1
-            new_position = (position + shift_amount) % number_of_letters
+            new_position = position + shift_amount
             new_letter = english_alphabet[new_position]
             end_text += new_letter
             shift_amount *= -1
+        else:
+            new_position = (position + shift_amount) % len(english_alphabet)
+            new_letter = english_alphabet[new_position]
+            end_text += new_letter
 
-        elif cipher_direction == "encode":
-            new_position = (position + shift_amount) % number_of_letters
-            if new_position <= number_of_letters:
-                new_letter = english_alphabet[new_position]
-                end_text += new_letter
-            else:
-                new_letter = english_alphabet[new_position - len(english_alphabet)]
-                end_text += new_letter
     print(f"The {cipher_direction}d text is {end_text}")
 
 
