@@ -4,4 +4,6 @@ def format_name(f_name, l_name):
     return f"{formatted_f_name} {formatted_l_name}"
 
 
-print(format_name("ginger", "meyer"))
+print(
+    format_name(input("What is your first name? "), input("what is your second name? "))
+)
