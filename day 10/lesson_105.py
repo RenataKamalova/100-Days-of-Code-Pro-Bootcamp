@@ -18,7 +18,7 @@ operations = {"+": add, "-": subtract, "*": multiply, "/": divide}
 
 
 def calculator():
-    num_1 = int(input("What's the first number? "))
+    num_1 = float(input("What's the first number? "))
 
     for symbol in operations:
         print(symbol)
@@ -28,7 +28,7 @@ def calculator():
     while continue_flag == 1:
 
         operation_symbol = input("Pick an operation: ")
-        num_2 = int(input("What's the next number? "))
+        num_2 = float(input("What's the next number? "))
 
         calculation_function = operations[operation_symbol]
         answer = calculation_function(num_1, num_2)
