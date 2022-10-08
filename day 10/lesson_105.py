@@ -20,27 +20,21 @@ num_1 = int(input("What's the first number? "))
 for symbol in operations:
     print(symbol)
 
-operation_symbol = input("Pick an operation from the line above: ")
-num_2 = int(input("What's the second number? "))
-
-calculation_function = operations[operation_symbol]
-first_answer = calculation_function(num_1, num_2)
-print(f"{num_1} {operation_symbol} {num_2} = {first_answer}")
-
 continue_flag = 1
 
-answer_to_question = input("Continue? y/n ")
-
-
 while continue_flag == 1:
-    if answer_to_question == "y":
-        operation_symbol = input("Pick another operation?")
-        num_3 = int(input("What's the next number? "))
 
-        calculation_function = operations[operation_symbol]
+    operation_symbol = input("Pick an operation: ")
+    num_2 = int(input("What's the next number? "))
 
-        second_answer = calculation_function(first_answer, num_3)
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num_1, num_2)
+    print(f"{num_1} {operation_symbol} {num_2} = {answer}")
 
-        print(f"{first_answer} {operation_symbol} {num_3} = {second_answer}")
+    if (
+        input(f"type 'y' to continue calculation with {answer} or type 'n' to exit ")
+        == "y"
+    ):
+        num_1 = answer
     else:
-        continue_flag = 0
+        continue_flag == 0
