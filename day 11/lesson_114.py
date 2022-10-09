@@ -1,4 +1,5 @@
 import random
+from art import logo
 
 
 def deal_card():
@@ -36,7 +37,9 @@ def compare(user_score, computer_score):
     else:
         return "You lose 😤"
 
-def play_game()
+
+def play_game():
+    print(logo)
     user_cards = []
     computer_cards = []
     is_game_over = False
@@ -68,5 +71,6 @@ def play_game()
     print(f"computer's final hand is {computer_cards}, final_score: {computer_score}")
     print(compare(user_score, computer_score))
 
-while input("Do ypu want to play again? y/n ") == "y":
+
+while input("Do ypu want to play a game of Blackjack? y/n ") == "y":
     play_game()
