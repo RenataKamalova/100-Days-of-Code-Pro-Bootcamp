@@ -1,5 +1,4 @@
 import random
-from unicodedata import ucd_3_2_0
 
 
 def deal_card():
