@@ -21,6 +21,7 @@ def calculate_score(cards):
 
 user_cards = []
 computer_cards = []
+is_game_over = 0
 
 for i in range(2):
     user_cards.append(deal_card())
@@ -28,7 +29,8 @@ for i in range(2):
 
 user_score = calculate_score(user_cards)
 computer_score = calculate_score(computer_cards)
-is_game_over = 0
+print(f"Your_cards: {user_cards}, current_score: {user_score}")
+
 
 if user_score > 21 or user_score == 0 or computer_score == 0:
     is_game_over = 1
