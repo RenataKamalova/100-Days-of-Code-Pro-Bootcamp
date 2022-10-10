@@ -19,7 +19,7 @@ def compare_numbers(estimated_number, hidden_number):
         return f"Too high. Guess again."
 
 
-new_number = 5  #
+new_number = create_number()
 
 print("Welcome to the number guessing game!")
 print("I'm thinking of a number between 1 to 100")
