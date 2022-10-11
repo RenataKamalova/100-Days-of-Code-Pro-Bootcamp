@@ -31,7 +31,6 @@ n = set_difficulty(hard_easy_level)
 if n == 0:
     print("Invalid input. Type 'hard' or 'easy'")
 
-print(f"число = {answer}")
 
 for i in range(0, n):
     print(f"You have {n - i} attempts remaining to guess the number.")
