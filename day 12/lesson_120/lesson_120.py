@@ -3,13 +3,12 @@ from art import logo
 
 
 def compare_numbers(estimated_number, hidden_number):
-    if estimated_number == hidden_number:
-        win = f"You got it! The answer was {hidden_number}."
-        return win
-    elif estimated_number < hidden_number:
+    if estimated_number < hidden_number:
         return f"Too low. Guess again."
     elif estimated_number > hidden_number:
         return f"Too high. Guess again."
+    else:
+        return f"You got it! The answer was {hidden_number}."
 
 
 def level_difficulty(x):
