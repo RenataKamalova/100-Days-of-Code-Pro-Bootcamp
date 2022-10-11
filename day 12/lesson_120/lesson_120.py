@@ -11,22 +11,22 @@ def compare_numbers(estimated_number, hidden_number):
         return f"You got it! The answer was {hidden_number}."
 
 
-def level_difficulty(x):
-    if x == "easy":
+def set_difficulty(lvl):
+    if lvl == "easy":
         return 10
-    elif x == "hard":
+    elif lvl == "hard":
         return 5
     else:
         return 0
 
 
-answer = random.randint(1, 100)
 print(logo)
 print("Welcome to the number guessing game!")
 print("I'm thinking of a number between 1 to 100")
 
-difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
-n = level_difficulty(difficulty)
+answer = random.randint(1, 100)
+hard_easy_level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+n = set_difficulty(hard_easy_level)
 
 if n == 0:
     print("Invalid input. Type 'hard' or 'easy'")
