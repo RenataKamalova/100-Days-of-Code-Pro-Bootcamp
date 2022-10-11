@@ -2,14 +2,6 @@ import random
 from art import logo
 
 
-def create_number():
-    numbers = []
-    for i in range(1, 101):
-        numbers.append(i)
-    x = random.choice(numbers)
-    return x
-
-
 def compare_numbers(estimated_number, hidden_number):
     if estimated_number == hidden_number:
         win = f"You got it! The answer was {hidden_number}."
@@ -22,16 +14,16 @@ def compare_numbers(estimated_number, hidden_number):
 
 def level_difficulty(x):
     if x == "easy":
-        attemps = 10
+        attempts = 10
     elif x == "hard":
-        attemps = 5
+        attempts = 5
     else:
         print("Invalid input. Type 'hard' or 'easy'")
 
-    return attemps
+    return attempts
 
 
-new_number = create_number()
+new_number = random.randint(1, 100)
 print(logo)
 print("Welcome to the number guessing game!")
 print("I'm thinking of a number between 1 to 100")
