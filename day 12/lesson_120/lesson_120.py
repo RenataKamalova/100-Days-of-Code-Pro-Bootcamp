@@ -29,8 +29,9 @@ print("I'm thinking of a number between 1 to 100")
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
 n = level_difficulty(difficulty)
 
-if n != 5 and n != 10:
+if n == 0:
     print("Invalid input. Type 'hard' or 'easy'")
+
 print(f"число = {answer}")
 
 for i in range(0, n):
