@@ -15,16 +15,21 @@ def compare_numbers(estimated_number, hidden_number):
 def level_difficulty(x):
     if x == "easy":
         return 10
-    else:
+    elif x == "hard":
         return 5
+    else:
+        return 0
 
 
 new_number = random.randint(1, 100)
 print(logo)
 print("Welcome to the number guessing game!")
 print("I'm thinking of a number between 1 to 100")
+
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
 n = level_difficulty(difficulty)
+if n != 5 and n != 10:
+    print("Invalid input. Type 'hard' or 'easy'")
 print(f"число = {new_number}")
 
 for i in range(0, n):
