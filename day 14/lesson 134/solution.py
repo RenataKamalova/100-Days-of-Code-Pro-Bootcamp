@@ -2,6 +2,14 @@ import random
 from art import logo
 from art import vs
 
+
+def compare_countries(first_country, second_country):
+    if first_country > second_country:
+        return "{first_country} больше {second_country} "
+    else:
+        return "{second_country} больше {first_country} "
+
+
 print(logo)
 countries_land_size = {}
 current_pair = []
@@ -20,3 +28,7 @@ for i in range(2):
     current_pair.append(country)
 
 print(current_pair)
+my_answer = input(f"Чья площадь больше? {current_pair[0]} или {current_pair[1]}? ")
+
+result = compare_countries(current_pair[0], current_pair[1])
+print(result)
