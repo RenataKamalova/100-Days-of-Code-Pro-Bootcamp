@@ -2,6 +2,7 @@ import random
 from art import logo
 from art import vs
 
+print(logo)
 countries_land_size = {}
 
 with open("countries.txt") as topo_file:
