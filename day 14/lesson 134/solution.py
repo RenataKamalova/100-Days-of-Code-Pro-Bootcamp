@@ -38,7 +38,7 @@ def find_smaller_area(y, first, second):
 
 print(logo)
 countries_land_size = {}
-pair = []
+current_pair = []
 
 
 with open("countries.txt") as file:
@@ -51,12 +51,12 @@ all_countries = list(countries_land_size.keys())
 
 for i in range(2):
     country = random.choice(all_countries)
-    pair.append(country)
+    current_pair.append(country)
 
-first_country = pair[0]
-second_country = pair[1]
-first_country_area = countries_land_size[pair[0]]
-second_country_area = countries_land_size[pair[1]]
+first_country = current_pair[0]
+second_country = current_pair[1]
+first_country_area = countries_land_size[current_pair[0]]
+second_country_area = countries_land_size[current_pair[1]]
 
 my_answer = input(
     f"Чья площадь больше? {first_country} или {second_country}?\n\n{first_country} {vs} \n{second_country}\n\n"
@@ -64,7 +64,7 @@ my_answer = input(
 
 bigger_area = compare_countries(first_country_area, second_country_area)
 bigger_country = get_key(countries_land_size, bigger_area)
-smaller_country = find_smaller_country(bigger_country, pair)
+smaller_country = find_smaller_country(bigger_country, current_pair)
 smaller_area = find_smaller_area(
     smaller_country, first_country_area, second_country_area
 )
