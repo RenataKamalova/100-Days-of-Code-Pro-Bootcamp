@@ -59,22 +59,26 @@ first_country_area = countries_land_size[current_pair[0]]
 second_country_area = countries_land_size[current_pair[1]]
 
 my_answer = input(
-    f"Чья площадь больше? {first_country} или {second_country}?\n\n{first_country} {vs} \n{second_country}\n\n"
+    f"Чья площадь больше? А){first_country} или Б){second_country}?\n\n{first_country} {vs} \n{second_country}\n\n"
 )
 
 bigger_area = compare_countries(first_country_area, second_country_area)
 bigger_country = get_key(countries_land_size, bigger_area)
+a = "A"
 smaller_country = find_smaller_country(bigger_country, current_pair)
+b = "Б"
 smaller_area = find_smaller_area(
     smaller_country, first_country_area, second_country_area
 )
 
 
-if my_answer == bigger_country:
+if my_answer == "A" or my_answer == "а":
     print(
-        f"Да, правда, {bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км. Площадь {smaller_country} = {smaller_area} км. "
+        f"Да, правда, {bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км., а {smaller_country} - {smaller_area} км. "
     )
-else:
+elif my_answer == "Б" or my_answer == "б":
     print(
         f"Нет, наоборот, {bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км. Площадь {smaller_country} = {smaller_area} км. "
     )
+else:
+    print("Неверный ввод")
