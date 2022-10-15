@@ -1,5 +1,4 @@
 import random
-from turtle import right
 from art import logo
 from art import vs
 
