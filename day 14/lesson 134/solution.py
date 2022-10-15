@@ -71,7 +71,7 @@ smaller_area = find_smaller_area(
 
 
 print(
-    f"{bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км "
+    f"{bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км. Площадь {smaller_country} = {smaller_area} км. "
 )
 
 
