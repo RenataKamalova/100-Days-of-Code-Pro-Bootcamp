@@ -1,6 +1,5 @@
-from multiprocessing.sharedctypes import Value
 import random
-from telnetlib import PRAGMA_HEARTBEAT
+from turtle import right
 from art import logo
 from art import vs
 
@@ -14,13 +13,19 @@ def compare_countries(first, second):
     return result
 
 
+def get_key(d, value):
+    for k, v in d.items():
+        if v == value:
+            return k
+
+
 print(logo)
 countries_land_size = {}
 current_pair = []
 
 
-with open("countries.txt") as topo_file:
-    for line in topo_file:
+with open("countries.txt") as file:
+    for line in file:
         [country, land_size] = line.split(",")
         countries_land_size[country] = int(land_size)
 
@@ -41,10 +46,8 @@ second_country_area = countries_land_size[current_pair[1]]
 # )
 
 right_answer = compare_countries(first_country_area, second_country_area)
-
-for key in countries_land_size:
-    if countries_land_size[key] == right_answer:
-        print(key)
+x = get_key(countries_land_size, right_answer)
+print(x)
 
 
 # if my_answer == countries_land_size[right_answer]:
