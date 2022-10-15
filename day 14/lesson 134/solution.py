@@ -70,12 +70,11 @@ smaller_area = find_smaller_area(
 )
 
 
-print(
-    f"{bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км. Площадь {smaller_country} = {smaller_area} км. "
-)
-
-
-if my_answer == countries_land_size[bigger_country]:
-    print(f"Да, правда, {bigger_country} с площадью {bigger_result} больше")
+if my_answer == bigger_country:
+    print(
+        f"Да, правда, {bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км. Площадь {smaller_country} = {smaller_area} км. "
+    )
 else:
-    print(f"Нет, наоборот, {bigger_country} с площадью {bigger_result} больше")
+    print(
+        f"Нет, наоборот, {bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км. Площадь {smaller_country} = {smaller_area} км. "
+    )
