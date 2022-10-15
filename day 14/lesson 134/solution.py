@@ -1,13 +1,17 @@
+from multiprocessing.sharedctypes import Value
 import random
+from telnetlib import PRAGMA_HEARTBEAT
 from art import logo
 from art import vs
 
 
-def compare_countries(first_country, second_country):
-    if first_country > second_country:
-        return "{first_country} больше {second_country} "
+def compare_countries(first, second):
+    if first > second:
+        result = first
     else:
-        return "{second_country} больше {first_country} "
+        result = second
+
+    return result
 
 
 print(logo)
@@ -27,8 +31,23 @@ for i in range(2):
     country = random.choice(all_countries)
     current_pair.append(country)
 
-print(current_pair)
-my_answer = input(f"Чья площадь больше? {current_pair[0]} или {current_pair[1]}? ")
+first_country = current_pair[0]
+second_country = current_pair[1]
+first_country_area = countries_land_size[current_pair[0]]
+second_country_area = countries_land_size[current_pair[1]]
 
-result = compare_countries(current_pair[0], current_pair[1])
-print(result)
+# my_answer = input(
+#     f"Чья площадь больше? {first_country} или {second_country}?\n\n{first_country} {vs} \n{second_country}\n\n"
+# )
+
+right_answer = compare_countries(first_country_area, second_country_area)
+
+for key in countries_land_size:
+    if countries_land_size[key] == right_answer:
+        print(key)
+
+
+# if my_answer == countries_land_size[right_answer]:
+#     print(f"Да, правда, {right_answer} с площадью больше")
+# else:
+#     print(f"Нет, наоборот, {right_answer} больше")
