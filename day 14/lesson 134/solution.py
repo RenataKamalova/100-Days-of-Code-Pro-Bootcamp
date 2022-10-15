@@ -19,12 +19,21 @@ def get_key(d, value):
 
 
 def find_smaller_country(x, pair):
-    if right_answer == current_pair[0]:
+    if bigger_country == current_pair[0]:
         wrong_answer = current_pair[1]
     else:
         wrong_answer = current_pair[0]
 
     return wrong_answer
+
+
+def find_smaller_area(y, first, second):
+    if smaller_country == first_country_area:
+        smaller_area = first_country_area
+    else:
+        smaller_area = second_country_area
+
+    return smaller_area
 
 
 print(logo)
@@ -53,15 +62,20 @@ second_country_area = countries_land_size[current_pair[1]]
 #     f"Чья площадь больше? {first_country} или {second_country}?\n\n{first_country} {vs} \n{second_country}\n\n"
 # )
 
-bigger_result = compare_countries(first_country_area, second_country_area)
-right_answer = get_key(countries_land_size, bigger_result)
-smaller_country = find_smaller_country(right_answer, current_pair)
+bigger_area = compare_countries(first_country_area, second_country_area)
+bigger_country = get_key(countries_land_size, bigger_area)
+smaller_country = find_smaller_country(bigger_country, current_pair)
+smaller_area = find_smaller_area(
+    smaller_country, first_country_area, second_country_area
+)
 
-print(smaller_country)
-# print(f"{bigger_result} c площадью {bigger_result}> {smaller_country}")
+
+print(
+    f"{bigger_country} > {smaller_country}. {bigger_country} имеет площадь {bigger_area} км "
+)
 
 
-if my_answer == countries_land_size[right_answer]:
-    print(f"Да, правда, {right_answer} с площадью {bigger_result} больше")
-else:
-    print(f"Нет, наоборот, {right_answer} с площадью {bigger_result} больше")
+# if my_answer == countries_land_size[bigger_country]:
+#     print(f"Да, правда, {bigger_country} с площадью {bigger_result} больше")
+# else:
+#     print(f"Нет, наоборот, {bigger_country} с площадью {bigger_result} больше")
