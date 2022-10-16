@@ -1,4 +1,3 @@
-from turtle import right
 from art import logo, vs
 from data import data
 import random
@@ -12,19 +11,31 @@ def compare(first_person, second_person):
         result = second_person["name"]
         result = "b"
     else:
-        result = "equal number"
+        result = "c"
 
     return result
+
+
+def check(hypothesis, exact_answer):
+    valid_answers = ["A", "a", "B", "b", "C", "c"]
+    while hypothesis in valid_answers:
+        if hypothesis == exact_answer:
+            return True
+        elif hypothesis != exact_answer:
+            return False
+
+    error = "incorrect input"
+    return error
 
 
 def game():
     continue_flag = True
     score = 0
+
     while continue_flag == True:
 
         a = random.choice(data)
         b = random.choice(data)
-        # score = 0
 
         right_answer = compare(a, b)
 
@@ -36,17 +47,19 @@ def game():
         print(
             f'{logo}\nCompare A: {a["name"]}, a {a["description"]}, from {a["country"]}\n{vs}\nAgainst B: {b["name"]}, a {b["description"]}, from {b["country"]}'
         )
-        my_answer = input("Who has more followers? Type 'A' or 'B'\n").lower()
+        my_answer = input(
+            "Who has more followers? Type 'A' or 'B' or 'C' (if they have equal number of followers)'\n"
+        ).lower()
 
-        if my_answer == right_answer:
+        if check(my_answer, right_answer) == True:
             score += 1
             print(f"You're right! Current score: {score}")
-        elif my_answer != right_answer:
+        elif check(my_answer, right_answer) == False:
             score = 0
             print(f"Sorry, that's wrong. Final score: {score}")
             continue_flag = False
         else:
-            print("Incorrect input")
+            print(check(my_answer, right_answer))
 
 
 game()
