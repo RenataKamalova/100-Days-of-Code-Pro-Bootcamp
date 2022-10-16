@@ -7,22 +7,46 @@ import random
 def compare(first_person, second_person):
     if first_person["follower_count"] > second_person["follower_count"]:
         result = first_person["name"]
+        result = "a"
     elif second_person["follower_count"] > first_person["follower_count"]:
         result = second_person["name"]
+        result = "b"
     else:
         result = "equal number"
 
     return result
 
 
-a = random.choice(data)
-b = random.choice(data)
+def game():
+    continue_flag = True
+    score = 0
+    while continue_flag == True:
 
-right_answer = compare(a, b)
+        a = random.choice(data)
+        b = random.choice(data)
+        # score = 0
 
-print(
-    f'{logo}\nCompare A: {a["name"]}, a {a["description"]}, from {a["country"]}\n{vs}\nAgainst B: {b["name"]}, a {b["description"]}, from {b["country"]}'
-)
-my_answer = input("Who has more followers? Type 'A' or 'B' ")
+        right_answer = compare(a, b)
 
-print(right_answer)
+        print(
+            f'подсказка!\nчисло подписчиков у A) {a["name"]} = {a["follower_count"]},\nчисло подписчиков у B) {b["name"]} {b["follower_count"]}'
+        )
+        print(right_answer)
+
+        print(
+            f'{logo}\nCompare A: {a["name"]}, a {a["description"]}, from {a["country"]}\n{vs}\nAgainst B: {b["name"]}, a {b["description"]}, from {b["country"]}'
+        )
+        my_answer = input("Who has more followers? Type 'A' or 'B'\n").lower()
+
+        if my_answer == right_answer:
+            score += 1
+            print(f"You're right! Current score: {score}")
+        elif my_answer != right_answer:
+            score = 0
+            print(f"Sorry, that's wrong. Final score: {score}")
+            continue_flag = False
+        else:
+            print("Incorrect input")
+
+
+game()
