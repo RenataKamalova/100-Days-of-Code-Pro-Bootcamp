@@ -31,40 +31,39 @@ def check(hypothesis, exact_answer):
 def game():
     continue_flag = True
     score = 0
+    a = random.choice(data)
 
-    while continue_flag == True:
+    while continue_flag == True and len(data) >= 1:
+        b = random.choice(data)
 
-        a = random.choice(data)
-        data.remove(a)
-
-        for i in range(0, len(data) - 1):
+        while a == b:
             b = random.choice(data)
-            if a == b:
-                b = random.choice(data)
-            right_answer = compare(a, b)
-            data.remove(b)
+        right_answer = compare(a, b)
 
-            print(
-                f'подсказка!\nчисло подписчиков у A) {a["name"]} = {a["follower_count"]},\nчисло подписчиков у B) {b["name"]} {b["follower_count"]}'
-            )
-            print(right_answer)
+        print(
+            f'подсказка!\nчисло подписчиков у A) {a["name"]} = {a["follower_count"]},\nчисло подписчиков у B) {b["name"]} {b["follower_count"]}'
+        )
+        print(right_answer)
 
-            print(
-                f'{logo}\nCompare A: {a["name"]}, a {a["description"]}, from {a["country"]}\n{vs}\nAgainst B: {b["name"]}, a {b["description"]}, from {b["country"]}'
-            )
-            my_answer = input(
-                "Who has more followers? Type 'A' or 'B' or 'C' (if they have equal number of followers)'\n"
-            ).lower()
+        print(
+            f'{logo}\nCompare A: {a["name"]}, a {a["description"]}, from {a["country"]}\n{vs}\nAgainst B: {b["name"]}, a {b["description"]}, from {b["country"]}'
+        )
+        my_answer = input(
+            "Who has more followers? Type 'A' or 'B' or 'C' (if they have equal number of followers)'\n"
+        ).lower()
 
-            if check(my_answer, right_answer) == True:
-                score += 1
-                print(f"You're right! Current score: {score}")
-            elif check(my_answer, right_answer) == False:
-                score = 0
-                print(f"Sorry, that's wrong. Final score: {score}")
-                continue_flag = False
-            else:
-                print(check(my_answer, right_answer))
+        if check(my_answer, right_answer) == True:
+            score += 1
+            print(f"You're right! Current score: {score}")
+            a = b
+
+        elif check(my_answer, right_answer) == False:
+            score = 0
+            print(f"Sorry, that's wrong. Final score: {score}")
+            continue_flag = False
+        else:
+            print(check(my_answer, right_answer))
+            data.append(b)
 
 
 game()
