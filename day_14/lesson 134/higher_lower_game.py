@@ -33,7 +33,7 @@ def game():
     score = 0
     a = random.choice(data)
 
-    while continue_flag == True and len(data) >= 1:
+    while continue_flag == True:
         b = random.choice(data)
 
         while a == b:
