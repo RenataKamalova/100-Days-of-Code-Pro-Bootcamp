@@ -16,7 +16,8 @@ def check_request(current_answer):
 
         is_used_ingredients(current_answer)
     elif current_answer == "report":
-        print(resources)
+        for item in resources:
+            print(f"{item}: {resources[item]}")
     else:
         print("error")
 
@@ -52,4 +53,3 @@ def is_used_ingredients(drink):
 
 answer_to_question = input("What whould you like? (espresso/latte/cappuccino)\n")
 check_request(answer_to_question)
-print(coins)
