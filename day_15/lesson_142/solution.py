@@ -18,9 +18,12 @@ def check_request(current_answer):
         is_used_ingredients(current_answer)
     elif current_answer == "report":
         for item in resources:
-            print(f"{item}: {resources[item]}")
+            if item != "money":
+                print(f"{item}: {resources[item]} ml")
+            else:
+                print(f"{item}: ${resources[item]}")
     else:
-        print("error")
+        print("error, check spelling please")
 
 
 def coins_check(current_sum, sum_of_drink, current_drink):
@@ -44,12 +47,10 @@ def is_used_ingredients(drink):
         resources["water"] -= MENU["latte"]["ingredients"]["water"]
         resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
         resources["milk"] -= MENU["latte"]["ingredients"]["milk"]
-    elif drink == "cappuccino":
+    else:
         resources["water"] -= MENU["cappuccino"]["ingredients"]["water"]
         resources["coffee"] -= MENU["cappuccino"]["ingredients"]["coffee"]
         resources["milk"] -= MENU["cappuccino"]["ingredients"]["milk"]
-    else:
-        print("error")
 
 
 continue_flag = True
