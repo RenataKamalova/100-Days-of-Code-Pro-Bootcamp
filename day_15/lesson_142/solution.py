@@ -11,7 +11,8 @@ def check_request(current_answer):
         for coin in list_coins:
             coins.append(list_coins[coin] * int(input(f"How many {coin}? ")))
 
-        sum_coins = sum(coins) / 100
+        sum_coins = round(sum(coins) / 100, 1)
+        print(sum_coins)
         coins_check(sum_coins, cost_of_drink, current_answer)
 
         is_used_ingredients(current_answer)
@@ -27,7 +28,7 @@ def coins_check(current_sum, sum_of_drink, current_drink):
         print(f"Here's your {current_drink}. Enjoy!")
         resources["Money"] = current_sum
     elif current_sum > sum_of_drink:
-        print(f"Here ${current_sum - sum_of_drink} in change")
+        print(f"Here's ${current_sum - sum_of_drink} in change")
         print(f"Here's your {current_drink}. Enjoy!")
         resources["Money"] = current_sum
     else:
