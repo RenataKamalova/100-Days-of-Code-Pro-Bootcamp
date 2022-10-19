@@ -24,9 +24,11 @@ def check_request(current_answer):
 def coins_check(current_sum, sum_of_drink, current_drink):
     if current_sum == sum_of_drink:
         print(f"Here's your {current_drink}. Enjoy!")
+        resources["Money"] = current_sum
     elif current_sum > sum_of_drink:
         print(f"Your charge is {current_sum - sum_of_drink}")
         print(f"Here's your {current_drink}. Enjoy!")
+        resources["Money"] = current_sum
     else:
         print("Sorry there is not enough money")
         print(f"{current_drink} costs {sum_of_drink}$. You inserted {current_sum}$")
