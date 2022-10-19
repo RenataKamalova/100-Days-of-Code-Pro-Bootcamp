@@ -27,7 +27,7 @@ def coins_check(current_sum, sum_of_drink, current_drink):
         print(f"Here's your {current_drink}. Enjoy!")
         resources["Money"] = current_sum
     elif current_sum > sum_of_drink:
-        print(f"Your charge is {current_sum - sum_of_drink}")
+        print(f"Here ${current_sum - sum_of_drink} in change")
         print(f"Here's your {current_drink}. Enjoy!")
         resources["Money"] = current_sum
     else:
@@ -51,5 +51,8 @@ def is_used_ingredients(drink):
         print("error")
 
 
-answer_to_question = input("What whould you like? (espresso/latte/cappuccino)\n")
-check_request(answer_to_question)
+continue_flag = True
+
+while continue_flag == True:
+    answer_to_question = input("What whould you like? (espresso/latte/cappuccino)\n")
+    check_request(answer_to_question)
