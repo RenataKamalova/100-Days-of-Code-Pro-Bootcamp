@@ -27,9 +27,10 @@ def check_request(current_answer):
 
 
 def coins_check(current_sum, sum_of_drink, current_drink):
+    resources["money"] = 0
     if current_sum == sum_of_drink:
         print(f"Here's your {current_drink}. Enjoy!")
-        resources["Money"] += current_sum
+        resources["money"] += current_sum
     elif current_sum > sum_of_drink:
         print(f"Here's ${round(current_sum - sum_of_drink,2)} in change")
         print(f"Here's your {current_drink}. Enjoy!")
