@@ -1,10 +1,10 @@
 from data import MENU, resources
 
 list_coins = {"quarters": 25, "dimes": 10, "nickles": 5, "pennies": 1}
-coins = []
 
 
 def check_request(current_answer):
+    coins = []
     if current_answer in MENU:
         cost_of_drink = MENU[current_answer]["cost"]
         print("Please insert coins.")
@@ -29,28 +29,20 @@ def check_request(current_answer):
 def coins_check(current_sum, sum_of_drink, current_drink):
     if current_sum == sum_of_drink:
         print(f"Here's your {current_drink}. Enjoy!")
-        resources["Money"] = current_sum
+        resources["Money"] += current_sum
     elif current_sum > sum_of_drink:
         print(f"Here's ${round(current_sum - sum_of_drink,2)} in change")
         print(f"Here's your {current_drink}. Enjoy!")
-        resources["money"] = current_sum
+        resources["money"] += sum_of_drink
     else:
         print("Sorry there is not enough money")
         print(f"{current_drink} costs {sum_of_drink}$. You inserted {current_sum}$")
 
 
 def is_used_ingredients(drink):
-    if drink == "espresso":
-        resources["water"] -= MENU["espresso"]["ingredients"]["water"]
-        resources["coffee"] -= MENU["espresso"]["ingredients"]["coffee"]
-    elif drink == "latte":
-        resources["water"] -= MENU["latte"]["ingredients"]["water"]
-        resources["coffee"] -= MENU["latte"]["ingredients"]["coffee"]
-        resources["milk"] -= MENU["latte"]["ingredients"]["milk"]
-    else:
-        resources["water"] -= MENU["cappuccino"]["ingredients"]["water"]
-        resources["coffee"] -= MENU["cappuccino"]["ingredients"]["coffee"]
-        resources["milk"] -= MENU["cappuccino"]["ingredients"]["milk"]
+    resources["water"] -= MENU[drink]["ingredients"]["water"]
+    resources["coffee"] -= MENU[drink]["ingredients"]["coffee"]
+    resources["milk"] -= MENU[drink]["ingredients"]["milk"]
 
 
 continue_flag = True
