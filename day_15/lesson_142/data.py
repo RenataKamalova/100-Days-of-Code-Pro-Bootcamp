@@ -1,3 +1,6 @@
+from tkinter import Menu
+
+
 MENU = {
     "espresso": {
         "ingredients": {
