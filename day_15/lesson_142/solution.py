@@ -6,6 +6,7 @@ list_coins = {"quarters": 25, "dimes": 10, "nickles": 5, "pennies": 1}
 def check_request(current_answer):
     coins = []
     if current_answer in MENU:
+        is_used_ingredients(current_answer)
         cost_of_drink = MENU[current_answer]["cost"]
         print("Please insert coins.")
         for coin in list_coins:
@@ -15,13 +16,15 @@ def check_request(current_answer):
         print(sum_coins)
         coins_check(sum_coins, cost_of_drink, current_answer)
 
-        is_used_ingredients(current_answer)
     elif current_answer == "report":
         for item in resources:
-            if item != "money":
+            if item == "water" or item == "milk":
                 print(f"{item}: {resources[item]}ml")
+            elif item == "coffee":
+                print(f"{item}: {resources[item]}g")
             else:
                 print(f"{item}: ${resources[item]}")
+
     else:
         print("error, check spelling please")
 
@@ -41,7 +44,11 @@ def coins_check(current_sum, sum_of_drink, current_drink):
 
 
 def is_used_ingredients(drink):
-    resources["water"] -= MENU[drink]["ingredients"]["water"]
+    if MENU[drink]["ingredients"]["water"] <= resources["water"]:
+        resources["water"] -= MENU[drink]["ingredients"]["water"]
+    else:
+        print("Sorry there's not enough water")
+
     resources["coffee"] -= MENU[drink]["ingredients"]["coffee"]
     resources["milk"] -= MENU[drink]["ingredients"]["milk"]
 
