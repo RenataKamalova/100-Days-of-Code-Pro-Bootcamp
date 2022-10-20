@@ -1,3 +1,4 @@
+from multiprocessing.resource_sharer import stop
 from data import MENU, resources
 
 list_coins = {"quarters": 25, "dimes": 10, "nickles": 5, "pennies": 1}
@@ -6,11 +7,12 @@ list_coins = {"quarters": 25, "dimes": 10, "nickles": 5, "pennies": 1}
 def check_request(current_answer):
     coins = []
     if current_answer in MENU:
-        if is_used_ingredients(current_answer):
+        if is_used_ingredients(current_answer) == True:
             cost_of_drink = MENU[current_answer]["cost"]
             print("Please insert coins.")
             for coin in list_coins:
-                coins.append(list_coins[coin] * int(input(f"How many {coin}? ")))
+                how_many_coins = 10  # int(input(f"How many {coin}?")
+                coins.append(list_coins[coin] * how_many_coins)
 
             sum_coins = sum(coins) / 100
             print(sum_coins)
@@ -49,7 +51,7 @@ def coins_check(current_sum, sum_of_drink, current_drink):
 def is_used_ingredients(drink):
 
     for ingredient in resources:
-        if ingredient != "money":
+        if ingredient != "money" and ingredient in MENU[drink]:
             required_volume = MENU[drink]["ingredients"][ingredient]
             left_volume = resources[ingredient]
             if required_volume <= left_volume:
