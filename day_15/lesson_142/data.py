@@ -29,3 +29,7 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+# for ingredient in resources:
+#     if ingredient != "money":
+#         print(ingredient)

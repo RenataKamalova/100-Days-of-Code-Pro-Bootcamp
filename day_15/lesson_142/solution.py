@@ -44,22 +44,16 @@ def coins_check(current_sum, sum_of_drink, current_drink):
 
 
 def is_used_ingredients(drink):
-    for ingredient in MENU[drink]["ingredients"]:
-        required_volume = MENU[drink]["ingredients"][ingredient]
-        left_volume = resources[ingredient]
-        if required_volume <= left_volume:
-            left_volume -= required_volume
-        else:
-            print(f"Sorry, there's not enough {ingredient}")
 
-    # if resources["water"] >= MENU[drink]["ingredients"]["water"]:
-    #     resources["water"] -= MENU[drink]["ingredients"]["water"]
-    # elif resources["coffee"] >= MENU[drink]["ingredients"]["coffee"]:
-    #     resources["coffee"] -= MENU[drink]["ingredients"]["coffee"]
-    # elif resources["milk"] >= MENU[drink]["ingredients"]["milk"]:
-    #     resources["milk"] -= MENU[drink]["ingredients"]["milk"]
-    # else:
-    #     print(f"There's not enough {drink}")
+    for ingredient in resources:
+        if ingredient != "money":
+            required_volume = MENU[drink]["ingredients"][ingredient]
+            left_volume = resources[ingredient]
+            if required_volume <= left_volume:
+                left_volume -= required_volume
+                resources[ingredient] = left_volume
+            else:
+                print(f"Sorry, there's not enough {ingredient}")
 
 
 continue_flag = True
