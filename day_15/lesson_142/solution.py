@@ -10,7 +10,7 @@ def check_request(current_answer):
             cost_of_drink = MENU[current_answer]["cost"]
             print("Please insert coins.")
             for coin in list_coins:
-                how_many_coins = int(input(f"How many {coin}? "))
+                how_many_coins = 10  # int(input(f"How many {coin}? "))
                 coins.append(list_coins[coin] * how_many_coins)
 
             sum_coins = sum(coins) / 100
@@ -68,6 +68,6 @@ condition_is_on = True
 
 while condition_is_on == True:
     answer_to_question = input("What whould you like? (espresso/latte/cappuccino)\n")
-    check_request(answer_to_question)
-    if check_request(answer_to_question) == False:
+    result = check_request(answer_to_question)
+    if result == False:
         condition_is_on = False
