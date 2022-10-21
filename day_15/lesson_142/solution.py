@@ -6,18 +6,14 @@ resources["money"] = 0
 
 def check_request(current_answer):
     coins = []
-    if current_answer in MENU:
-        if is_used_ingredients(current_answer) == True:
-            cost_of_drink = MENU[current_answer]["cost"]
-            print("Please insert coins.")
-            for coin in list_coins:
-                how_many_coins = int(input(f"How many {coin}? "))
-                coins.append(list_coins[coin] * how_many_coins)
-            print(f"You inserted ${sum(coins)}")
-            coins_check(sum(coins), cost_of_drink, current_answer)
-        else:
-            insufficient_ingredient = is_used_ingredients(current_answer)
-            print(f"Sorry, there's not enough {insufficient_ingredient}")
+    if current_answer in MENU and is_used_ingredients(current_answer) == True:
+        cost_of_drink = MENU[current_answer]["cost"]
+        print("Please insert coins.")
+        for coin in list_coins:
+            how_many_coins = int(input(f"How many {coin}? "))
+            coins.append(list_coins[coin] * how_many_coins)
+        print(f"You inserted ${sum(coins)}")
+        coins_check(sum(coins), cost_of_drink, current_answer)
 
     elif current_answer == "report":
         print(f"water: {resources['water']}ml")
@@ -55,7 +51,8 @@ def is_used_ingredients(drink):
                 left_volume -= required_volume
                 resources[ingredient] = left_volume
             else:
-                return ingredient
+                print(f"Sorry, there's not enough {ingredient}")
+                return False
 
     return True
 
