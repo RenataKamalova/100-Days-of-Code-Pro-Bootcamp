@@ -1,6 +1,7 @@
 from data import MENU, resources
 
-list_coins = {"quarters": 25, "dimes": 10, "nickles": 5, "pennies": 1}
+list_coins = {"quarters": 0.25, "dimes": 0.1, "nickles": 0.05, "pennies": 0.01}
+resources["money"] = 0
 
 
 def check_request(current_answer):
@@ -10,24 +11,19 @@ def check_request(current_answer):
             cost_of_drink = MENU[current_answer]["cost"]
             print("Please insert coins.")
             for coin in list_coins:
-                how_many_coins = 10  # int(input(f"How many {coin}? "))
+                how_many_coins = int(input(f"How many {coin}? "))
                 coins.append(list_coins[coin] * how_many_coins)
-
-            sum_coins = sum(coins) / 100
-            print(f"You inserted ${sum_coins}")
-            coins_check(sum_coins, cost_of_drink, current_answer)
+            print(f"You inserted ${sum(coins)}")
+            coins_check(sum(coins), cost_of_drink, current_answer)
         else:
             insufficient_ingredient = is_used_ingredients(current_answer)
             print(f"Sorry, there's not enough {insufficient_ingredient}")
 
     elif current_answer == "report":
-        for item in resources:
-            if item == "water" or item == "milk":
-                print(f"{item}: {resources[item]}ml")
-            elif item == "coffee":
-                print(f"{item}: {resources[item]}g")
-            else:
-                print(f"{item}: ${resources[item]}")
+        print(f"water: {resources['water']}ml")
+        print(f"milk: {resources['milk']}ml")
+        print(f"coffee: {resources['coffee']}g")
+        print(f"money: ${resources['money']}")
 
     elif current_answer == "off":
         return False
@@ -36,7 +32,7 @@ def check_request(current_answer):
 
 
 def coins_check(current_sum, sum_of_drink, current_drink):
-    resources["money"] = 0
+
     if current_sum == sum_of_drink:
         print(f"Here's your {current_drink}. Enjoy!")
         resources["money"] += current_sum
