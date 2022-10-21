@@ -29,6 +29,8 @@ def check_request(current_answer):
             else:
                 print(f"{item}: ${resources[item]}")
 
+    elif current_answer == "off":
+        return False
     else:
         print("error, check spelling please")
 
@@ -62,8 +64,10 @@ def is_used_ingredients(drink):
     return True
 
 
-continue_flag = True
+condition_is_on = True
 
-while continue_flag == True:
+while condition_is_on == True:
     answer_to_question = input("What whould you like? (espresso/latte/cappuccino)\n")
     check_request(answer_to_question)
+    if check_request(answer_to_question) == False:
+        condition_is_on = False
