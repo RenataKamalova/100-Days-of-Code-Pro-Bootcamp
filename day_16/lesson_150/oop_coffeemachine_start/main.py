@@ -21,5 +21,5 @@ while is_on:
         my_coffee_maker.report()
     else:
         drink = my_menu.find_drink(choice)
-        if my_coffee_maker.is_resource_sufficient(drink):
-            print(my_machine.make_payment(drink.cost))
+        if my_coffee_maker.is_resource_sufficient(drink) and my_machine.make_payment(drink.cost):
+            my_coffee_maker.make_coffee(drink)
