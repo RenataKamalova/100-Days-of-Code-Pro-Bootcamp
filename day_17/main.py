@@ -15,4 +15,6 @@ quiz = QuizBrain(question_bank)
 
 while quiz.still_has_questions() == True:
     quiz. next_question()
-
+    if quiz.still_has_questions() != True:
+        print("You've completed the quiz")
+        print(f"Your final score was: {quiz.score}/{len(question_bank)}")
