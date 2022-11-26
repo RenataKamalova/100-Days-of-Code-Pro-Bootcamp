@@ -4,24 +4,17 @@ import random
 tim = Turtle()
 screen = Screen()
 colors = ["yellow", "gold", "orange", "red", "maroon", "violet", "magenta", "purple", "navy"]
-right_left = ["right", "left", "forward"]
+directions = [0,90,180,270]
+sizes = [5,6,7, 8, 10,12,14]
+tim.pensize(5)
 
-def direction():
-    direction = random.choice(right_left)
-    if direction == "right":
-        return tim.right(90)
-    elif direction == "left":
-        return tim.left(90)
-    elif direction == "forward":
-        return tim.forward(30)
-    else:
-        return tim.backward(30)
-
-for i in range(100):
-    some_color = random.choice(colors)    
-    tim.color(some_color)
-    direction()
+for i in range(200):   
+    tim.color(random.choice(colors)) 
+    tim.pensize(random.choice(sizes))   
     tim.speed(0)
+    tim.setheading(random.choice(directions))
+    tim.forward(10)
+
     
 
 screen.exitonclick()
