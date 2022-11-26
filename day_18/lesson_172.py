@@ -4,6 +4,9 @@ import random
 tim = Turtle()
 screen = Screen()
 screen.colormode(255)
+tim.pensize(2)
+angle = 10
+number_of_circles = 360 // angle
 
 
 def color():
@@ -13,11 +16,11 @@ def color():
 
     return r,g,b
 
-for i in range(60):
+for i in range(number_of_circles):
     tim.pencolor(color())    
     tim.speed(0)
     tim.circle(100)    
-    tim.right(6)
+    tim.right(angle)
     
 
 
