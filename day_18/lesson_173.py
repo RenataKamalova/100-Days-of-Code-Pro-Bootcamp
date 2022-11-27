@@ -5,21 +5,22 @@ rgb_list = [(247, 239, 245), (155, 85, 51), (196, 153, 110), (50, 106, 145), (14
 tim = Turtle()
 screen = Screen()
 tim.speed(1)
+width = 6
+height = 4
+square = width * height
 
-for i in range(0, 24):
+for i in range(0, square):
     
-    if i < 6:
+    if i < width:
         tim.dot(20)        
         tim.penup()        
         tim.pendown()
-        if 6 - i != 1:
+        if width - i != 1:
             tim.penup()
-            tim.forward(50)
-
-        
+            tim.forward(50)       
         
 
-    elif ((i % 6 == 0) and ((i / 6) % 2 != 0)):        
+    elif ((i % width == 0) and ((i / width) % 2 != 0)):        
         tim.left(90)
         tim.penup()
         tim.forward(50)
@@ -27,7 +28,7 @@ for i in range(0, 24):
         tim.dot(20)
         tim.left(90)
         
-    elif (i % 6 == 0) and ((i / 6) % 2 == 0): #если чётное    
+    elif (i % width == 0) and ((i / width) % 2 == 0): #если чётное    
         tim.right(90)
         tim.penup()
         tim.forward(50)
