@@ -9,7 +9,6 @@ height = 10
 square = width * height
 
 tim = turtle_module.Turtle()
-screen = turtle_module.Screen()
 tim.speed(0)
 
 def move():
@@ -39,5 +38,5 @@ for i in range(0, square):
     else:        
         move()        
 
-
+screen = turtle_module.Screen()
 screen.exitonclick()
