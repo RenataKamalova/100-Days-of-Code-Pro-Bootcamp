@@ -13,7 +13,7 @@ class Scoreboard(Turtle):
         self.ht()
 
     def update_scoreboard(self):
-        self.write(f'Score: {self.count}', False, align="center", font=("Times new roman", 22, "normal"))        
+        self.write(f'Score: {self.count}', False, align="center", font=("Courier", 22, "normal"))        
         
     def increase_score(self):
         self.count += 1
