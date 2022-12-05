@@ -19,7 +19,8 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)   
     screen.update()
+    car_manager.create_cars()
+    car_manager.move_cars()
 
 
 
-screen.exitonclick()
