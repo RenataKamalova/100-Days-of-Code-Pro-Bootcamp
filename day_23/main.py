@@ -9,11 +9,20 @@ screen.setup(width=600, height=600)
 screen.tracer(0)
 
 tim = Player()
+car_manager = CarManager()
 screen.listen()
 screen.onkey(tim.go_up,"Up")
 screen.onkey(tim.go_down,"Down")
 
 game_is_on = True
+
 while game_is_on:
     time.sleep(0.1)
+    
+
+    car_manager.move()
     screen.update()
+
+
+
+screen.exitonclick()
