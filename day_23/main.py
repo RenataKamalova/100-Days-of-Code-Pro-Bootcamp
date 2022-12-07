@@ -29,7 +29,8 @@ while game_is_on:
             game_is_on = False
 
     #detect successful crossing
-    if player.ycor() == player.FIN
+    if player.is_at_finish_line():
+        player.go_to_start()
 
 
 screen.exitonclick()
