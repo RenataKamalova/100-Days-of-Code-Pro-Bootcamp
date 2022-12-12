@@ -1,19 +1,30 @@
 from turtle import Turtle
+import os
 ALIGNMENT = "center"
 FONT = ("Courier", 24, "normal")
+
+os.chdir(r'/home/ren/code/100-Days-of-Code-Pro-Bootcamp/day_24/lesson_219')
+
+       
+
 
 
 class Scoreboard(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.score = 0
-        self.high_score = 0
+        
+
+        with open("data.txt") as data:
+            self.high_score = int(data.read())            
+            
+
+        self.score = 0        
         self.color("white")
         self.penup()
         self.goto(0, 270)
         self.hideturtle()
-        self.update_scoreboard()
+        self.update_scoreboard()           
 
     def update_scoreboard(self):
         self.clear()
@@ -22,6 +33,8 @@ class Scoreboard(Turtle):
     def reset(self):
         if self.score > self.high_score:
             self.high_score = self.score
+            with open("data.txt",mode = "w") as data:
+                data.write(f"{ self.high_score}") 
         self.score = 0
         self.update_scoreboard()
 
